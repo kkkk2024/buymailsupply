@@ -16,6 +16,10 @@
       var ph = el.getAttribute('data-' + lang + '-placeholder');
       if (ph) el.setAttribute('placeholder', ph);
     });
+    // Toggle bilingual article blocks (data-lang-content="en|ru")
+    document.querySelectorAll('[data-lang-content]').forEach(function (el) {
+      el.style.display = (el.getAttribute('data-lang-content') === lang) ? '' : 'none';
+    });
     langBtns.forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
